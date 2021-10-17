@@ -1,0 +1,15 @@
+---
+layout: base
+---
+
+<ul>
+{% for game in nba %}
+<li>
+  {% if game.result %}
+    {% if game.time == 'Invalid Date' %}{{ game.date }} TBD{% else %}{{ game.date }}{% endif %} {% if game.location === 'home' %}vs.{% else %}at{% endif %} {{ game.name }} {{ game.result }} {{ game.score }}
+  {% else %}
+    {% if game.time == 'Invalid Date' %}{{ game.date }} TBD{% else %}{{ game.date }} {{ game.time }}{% endif %} {% if game.location === 'home' %}vs.{% else %}at{% endif %} {{ game.name }}{% if game.tv %} ({{ game.tv }}){% endif %}
+  {% endif %}
+</li>
+{% endfor %}
+</ul>

@@ -1,7 +1,7 @@
 {
-  "name": "11ty-starter",
-  "version": "1.1.0",
-  "description": "A basic boilerplate for getting a new Eleventy site up and running.",
+  "name": "nba-schedule",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.html",
   "scripts": {
     "watch:sass": "sass --watch _src/assets/scss:_site/assets/css --no-source-map",
