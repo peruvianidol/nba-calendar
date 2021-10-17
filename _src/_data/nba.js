@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const Cache = require("@11ty/eleventy-cache-assets");
 
 module.exports = async () => {
   const games = [];
@@ -6,8 +6,11 @@ module.exports = async () => {
 
   let url = "https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2021/league/00_full_schedule.json";
 
-  let data = await fetch(url)
-    .then(data => data.json());
+  let data = await Cache(url, {
+    duration: "8hr",
+    type: "json"
+  });
+    // .then(data => data.json());
   data = [...data.lscd.slice(4), ...data.lscd.slice(0, 4)];
 
   for (const { mscd: { g } } of data) {
