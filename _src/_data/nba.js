@@ -10,7 +10,6 @@ module.exports = async () => {
     duration: "8hr",
     type: "json"
   });
-    // .then(data => data.json());
   data = [...data.lscd.slice(4), ...data.lscd.slice(0, 4)];
 
   for (const { mscd: { g } } of data) {
@@ -26,7 +25,6 @@ module.exports = async () => {
         result = parseInt(teamData.s) > parseInt(oppData.s) ? 'W' : 'L';
       }
       const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
       return {
         location: isHome ? 'home' : 'away',
@@ -40,7 +38,6 @@ module.exports = async () => {
         time: gDate.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }),
         month: months[gDate.getMonth()],
         day: gDate.getDate(),
-        weekday: days[gDate.getDay()],
       };
     }));
   }
