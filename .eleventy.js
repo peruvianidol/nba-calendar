@@ -72,7 +72,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(svgSprite, {
     path: "./_src/assets/icons",
     globalClasses: "icon",
-    svgShortcode: "icon"
   });
 
   return {

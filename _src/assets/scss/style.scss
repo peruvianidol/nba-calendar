@@ -7,7 +7,35 @@ body {
   padding: 2rem;
   font-family: sans-serif;
 }
-
+table {
+  width: 100%;
+}
+caption {
+  text-align: left;
+  font-size: 2rem;
+  font-weight: bold;
+}
+th {
+  padding: 1rem;
+}
+td {
+  vertical-align: top;
+  width: 200px;  
+  height: 200px;
+  padding: .5rem;
+}
+.date {
+  font-weight: bold;
+  text-align: right;
+}
+.opponent {
+  width: 100%;
+  height: auto;
+}
+.tv {
+  width: 40%;
+  aspect-ratio: 752.56/243.9;
+}
 // main {
 //   display: flex;
 //   flex-wrap: wrap;
