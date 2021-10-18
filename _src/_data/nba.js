@@ -25,6 +25,8 @@ module.exports = async () => {
       if (teamData.s) {
         result = parseInt(teamData.s) > parseInt(oppData.s) ? 'W' : 'L';
       }
+      const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
       return {
         location: isHome ? 'home' : 'away',
@@ -36,6 +38,9 @@ module.exports = async () => {
         tv: gameData.bd.b.find(({ scope, type }) => type === 'tv' && ([isHome ? 'home' : 'away', 'natl'].includes(scope)))?.disp,
         date: gameData.gdte,
         time: gDate.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }),
+        month: months[gDate.getMonth()],
+        day: gDate.getDate(),
+        weekday: days[gDate.getDay()],
       };
     }));
   }
