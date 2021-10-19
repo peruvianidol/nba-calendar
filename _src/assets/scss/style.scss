@@ -1,43 +1,126 @@
+.hawks {--brand-primary: #e03a3e; --brand-secondary: #C1D32F; --brand-tertiary: #26282A;}
+.celtics {--brand-primary: #007A33; --brand-secondary: #BA9653;}
+.nets {--brand-primary: #000000; --brand-secondary: #ffffff;}
+.hornets {--brand-primary: #1d1160; --brand-secondary: #00788C;}
+.bulls {--brand-primary: #CE1141; --brand-secondary: #000000;}
+.cavaliers {--brand-primary: #860038; --brand-secondary: #FDBB30; --brand-tertiary: #041E42;}
+.mavericks {--brand-primary: #00538C; --brand-secondary: #002B5e;}
+.nuggets {--brand-primary: #0E2240; --brand-secondary: #FEC524; --brand-tertiary: #8B2131;}
+.pistons {--brand-primary: #C8102E; --brand-secondary: #1d42ba;}
+.warriors {--brand-primary: #1D428A; --brand-secondary: #ffc72c;}
+.rockets {--brand-primary: #CE1141; --brand-secondary: #000000;}
+.pacers {--brand-primary: #002D62; --brand-secondary: #FDBB30;}
+.clippers {--brand-primary: #c8102E; --brand-secondary: #1d428a;}
+.lakers {--brand-primary: #552583; --brand-secondary: #FDB927;}
+.grizzlies {--brand-primary: #5D76A9; --brand-secondary: #12173F; --brand-tertiary: #F5B112;}
+.heat {--brand-primary: #98002E; --brand-seconday: #F9A01B; --brand-tertiary: #000000;}
+.bucks {--brand-primary: #00471B; --brand-secondary: #EEE1C6;}
+.timberwolves {--brand-primary: #0C2340; --brand-secondary: #236192; --brand-tertiary: #78BE20;}
+.pelicans {--brand-primary: #0C2340; --brand-secondary: #C8102E; --brand-tertiary: #85714D;}
+.knicks {--brand-primary: #006BB6; --brand-secondary: #F58426;}
+.thunder {--brand-primary: #007ac1; --brand-secondary: #ef3b24; --brand-tertiary: #002D62;}
+.magic {--brand-primary: #0077c0; --brand-secondary: #C4ced4; --brand-tertiary: #000000;}
+.sixers {--brand-primary: #006bb6; --brand-secondary: #ed174c; --brand-tertiary: #002B5C;}
+.suns {--brand-primary: #1d1160; --brand-secondary: #e56020;}
+.trail-blazers {--brand-primary: #E03A3E; --brand-secondary: #000000;}
+.kings {--brand-primary: #5a2d81; --brand-secondary: #63727A; --brand-tertiary: #000000;}
+.spurs {--brand-primary: #c4ced4; --brand-secondary: #000000;}
+.raptors {--brand-primary: #ce1141; --brand-secondary: #000000;}
+.jazz {--brand-primary: #002B5C; --brand-secondary: #00471B; --brand-tertiary: #F9A01B;}
+.wizards {--brand-primary: #002B5C; --brand-secondary: #e31837; --brand-tertiary: #C4CED4;}
+
 * {
   box-sizing: border-box;
   margin: 0;
 }
-
+html {
+  font-size: 1.5vw;
+}
 body {
   padding: 2rem;
   font-family: sans-serif;
 }
 table {
   width: 100%;
+  margin-bottom: 3rem;
+  border-spacing: .25rem;
 }
 caption {
   text-align: left;
   font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 th {
   padding: 1rem;
 }
-td {
-  vertical-align: top;
-  width: 200px;  
-  height: 200px;
+tr {
+  display: flex;
+  gap: .25rem;
+  margin-bottom: .25rem;
+}
+th, td {
+  display: block;
+  width: 14.286%;  
   padding: .5rem;
+}
+td {
+  aspect-ratio: 1;
+  vertical-align: top;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
 }
 .date {
   font-weight: bold;
   text-align: right;
+  font-size: 1.25rem;
 }
 .opponent {
-  width: 100%;
-  height: auto;
+  display: block;
+  width: 66%;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  flex: 1;
 }
 .tv {
-  width: 40%;
+  height: 1.25rem;
+  flex-shrink: 1;
+}
+[aria-describedby="symbol-nbc-sports-chicago-desc"],
+[aria-describedby="symbol-nbc-sports-chicago-plus-desc"] {
   aspect-ratio: 752.56/243.9;
 }
-// main {
-//   display: flex;
-//   flex-wrap: wrap;
-//   gap: 2rem;
-// }
+[aria-describedby="symbol-tnt-desc"] {
+  aspect-ratio: 1;
+}
+[aria-describedby="symbol-nba-tv-desc"] {
+  aspect-ratio: 512/498;
+}
+[aria-describedby="symbol-espn-desc"] {
+  aspect-ratio: 512/127.7;
+}
+figure {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+figcaption {
+  display: flex;
+  gap: .5rem;
+  align-items: flex-end;
+}
+.result {
+  text-align: center;
+  flex: 1;
+  font-weight: bold;
+  font-size: 1.125rem;
+  white-space: nowrap;
+}
+.time {
+  flex: 1;
+  text-align: right;
+  font-size: .875rem;
+  white-space: nowrap;
+}
