@@ -41,7 +41,7 @@ html {
 }
 body {
   padding: 2rem;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 table {
   width: 100%;
@@ -50,7 +50,7 @@ table {
 }
 caption {
   text-align: left;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -73,6 +73,25 @@ td {
   border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+[data-preseason]:before {
+  content: "pre-season";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: .75em;
+  padding: .25em .5em;
+  background-color: red;
+  color: white;
+  z-index: -1;
+}
+.home, .away {
+  outline: 2px solid black;
+  outline-offset: -2px;
+}
+.home {
+  outline-color: red;
 }
 .date {
   font-weight: bold;
@@ -87,7 +106,7 @@ td {
   flex: 1;
 }
 .tv {
-  height: 1.25rem;
+  height: 1.25em;
   flex-shrink: 1;
 }
 [aria-describedby="symbol-nbc-sports-chicago-desc"],
@@ -111,19 +130,117 @@ figure {
 }
 figcaption {
   display: flex;
-  gap: .5rem;
-  align-items: flex-end;
+  gap: .5em;
+  align-items: center;
 }
 .result {
   text-align: center;
   flex: 1;
   font-weight: bold;
-  font-size: 1.125rem;
+  font-size: 1em;
   white-space: nowrap;
 }
 .time {
   flex: 1;
   text-align: right;
-  font-size: .875rem;
+  font-size: .75rem;
   white-space: nowrap;
+}
+header {
+  margin-bottom: 2rem;  
+}
+.logo {
+  height: 150px;
+  aspect-ratio: 1;
+}
+h1 {
+  margin-bottom: 1rem;
+}
+dl {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+dt {
+  width: 1rem;
+  height: 1rem;
+}
+dt:not(:first-child) {
+  margin-left: 1rem;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: revert;
+  }
+  body {
+    padding: 1rem;
+  }
+  table, tbody, tr, td {
+    display: block;
+  }
+  th, td:not([class]) {
+    display: none;
+  }
+  tr {
+    margin: 0;
+  }
+  caption {
+    width: 100%;
+  }
+  td[class] {
+    aspect-ratio: revert;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  [data-preseason]:before {
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 0;
+  }
+  .date {
+    text-align: right;
+    width: 2ch;
+    padding-left: 1rem;
+  }
+  .opponent {
+    width: auto;
+    height: 5rem;
+  }
+  [data-opponent] {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  [data-opponent]:after {
+    content: attr(data-opponent);
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  figure {
+    width: 100%;
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  figcaption {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: .25rem;
+  }
+  .time {
+    flex: revert;
+    font-size: .875rem;
+    text-align: right;
+  }
+  .result {
+    flex: revert;
+    font-size: 1.25rem;
+  }
 }

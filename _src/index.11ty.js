@@ -1,8 +1,10 @@
 class Games {
   data() {
     return {
-      "layout": "base",
-      "permalink": "/calendar/index.html",
+      "title": "Chicago Bulls 2021-22 Schedule",
+      "image": "bulls",
+      "layout": "calendar",
+      "permalink": "/index.html",
     };
   }
 
