@@ -187,6 +187,7 @@ dt:not(:first-child) {
   }
   caption {
     width: 100%;
+    white-space: nowrap;
   }
   td[class] {
     aspect-ratio: revert;
