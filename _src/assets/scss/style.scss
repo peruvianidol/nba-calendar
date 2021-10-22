@@ -210,17 +210,18 @@ dt:not(:first-child) {
   }
   .opponent {
     width: auto;
-    height: 5rem;
+    height: 4rem;
   }
   [data-opponent] {
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-shrink: 0;
   }
   [data-opponent]:after {
     content: attr(data-opponent);
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
   figure {
     width: 100%;
@@ -241,6 +242,6 @@ dt:not(:first-child) {
   }
   .result {
     flex: revert;
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
