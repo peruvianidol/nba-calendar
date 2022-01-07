@@ -54,7 +54,7 @@ class Games {
             game.time = "TBD";
           }
           output += `><p class="date">${d.getDate()}</p>`;
-          output += `<figure><div data-opponent="${game.name}">${this.svg(game.name.toLowerCase().replace(/\s/g, '-'), "opponent")}</div>`;
+          output += `<figure class="game"><div data-opponent="${game.name}">${this.svg(game.name.toLowerCase().replace(/\s/g, '-'), "opponent")}</div>`;
           if (game.result) {
             output += `<figcaption><p class="result">${game.result} ${game.score}</p></figcaption>`;
           } else {

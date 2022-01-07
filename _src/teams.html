@@ -1,0 +1,21 @@
+---
+title: Teams
+layout: base
+---
+
+<h1>NBA Calendar</h1>
+
+<section class="grid">
+{% for team in teams %}
+
+<figure class="team-card">
+  <a href="/{{ team.name | slug }}/">
+    <svg class="team-logo">
+      <use xlink:href="#svg-{{ team.name | slug }}">
+    </svg>
+  </a>
+  <figcaption>{{ team.city }}<br>{{ team.name }}</figcaption>
+</figure>
+
+{% endfor %}
+</section>

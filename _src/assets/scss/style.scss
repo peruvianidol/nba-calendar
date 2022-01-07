@@ -122,13 +122,13 @@ td {
 [aria-describedby="symbol-espn-desc"] {
   aspect-ratio: 512/127.7;
 }
-figure {
+.game {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-figcaption {
+.game figcaption {
   display: flex;
   gap: .5em;
   align-items: center;
@@ -223,13 +223,13 @@ dt:not(:first-child) {
     font-weight: bold;
     font-size: 1.125rem;
   }
-  figure {
+  .game {
     width: 100%;
     gap: 1rem;
     flex-direction: row;
     justify-content: space-between;
   }
-  figcaption {
+  .game figcaption {
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
@@ -244,4 +244,14 @@ dt:not(:first-child) {
     flex: revert;
     font-size: 1rem;
   }
+}
+
+.grid {
+  max-width: calc(750px + 4rem);
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+  gap: 1rem;
+}
+.team-card figcaption {
+  text-align: center;
 }
