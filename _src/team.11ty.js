@@ -1,15 +1,26 @@
+const fetchTeamData = require('./utils/nba');
+
 class Games {
-  data() {
+  data(data) {
     return {
-      "title": "Chicago Bulls 2021-22 Schedule",
-      "image": "bulls",
+      pagination: {
+        data: 'teams',
+        size: 1,
+        alias: 'team',
+      },
+      eleventyComputed: {
+        "title": (data) => `${data.team.city} ${data.team.name} 2021-22 Schedule`,
+      },
+      "image": (data) => `${this.slug(data.team.name)}`,
       "layout": "calendar",
-      "permalink": "/index.html",
+      "permalink": function (data) {
+        return `/${this.slug(data.team.name)}/index.html`;
+      }
     };
   }
 
   async render(data) {
-    let games = data.nba;
+    const games = await fetchTeamData(data.team.abbr);
     let months = ["October 2021", "November 2021", "December 2021", "January 2022", "February 2022", "March 2022", "April 2022"];
     const dataMap = new Map();
     for (const game of games) {

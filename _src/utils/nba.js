@@ -1,8 +1,7 @@
 const Cache = require("@11ty/eleventy-cache-assets");
 
-module.exports = async () => {
+module.exports = async function fetchTeamData(team) {
   const games = [];
-  const team = "CHI";
 
   let url = "https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2021/league/00_full_schedule.json";
 
