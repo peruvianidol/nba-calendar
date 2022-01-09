@@ -2,8 +2,10 @@
 layout: base
 ---
 <header>
-  {% svg "bulls", "logo" %}
-  <h1>{{title}}</h1>
+  <!-- SVG LOGO HERE -->
+  {% svg team.name | slug, "logo" %}
+  <!-- END SVG LOGO -->
+  <h1>{{ title }}</h1>
   
   <dl>
     <dt class="home"></dt>
@@ -12,4 +14,5 @@ layout: base
     <dd>Away</dd>
   </dl>
 </header>
-{{content | safe}}
+
+{{ content | safe }}

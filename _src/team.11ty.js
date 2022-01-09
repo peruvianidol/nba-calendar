@@ -9,9 +9,9 @@ class Games {
         alias: 'team',
       },
       eleventyComputed: {
-        "title": (data) => `${data.team.name} 2021-22 Schedule`,
+        "title": (data) => `${data.team.city} ${data.team.name} 2021-22 Schedule`,
       },
-      "image": "bulls",
+      "image": (data) => `${this.slug(data.team.name)}`,
       "layout": "calendar",
       "permalink": function (data) {
         return `/${this.slug(data.team.name)}/index.html`;

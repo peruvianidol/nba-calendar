@@ -4,7 +4,7 @@ class Games {
       "title": "Chicago Bulls 2021-22 Schedule",
       "image": "bulls",
       "layout": "calendar",
-      "permalink": "/index.html",
+      "permalink": "/bulls-old.html",
     };
   }
 
