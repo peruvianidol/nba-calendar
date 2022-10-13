@@ -9,7 +9,7 @@ class Games {
         alias: 'team',
       },
       eleventyComputed: {
-        "title": (data) => `${data.team.city} ${data.team.name} 2021-22 Schedule`,
+        "title": (data) => `${data.team.city} ${data.team.name} 2022-23 Schedule`,
       },
       "image": (data) => `${this.slug(data.team.name)}`,
       "layout": "calendar",
@@ -21,7 +21,7 @@ class Games {
 
   async render(data) {
     const games = await fetchTeamData(data.team.abbr);
-    let months = ["October 2021", "November 2021", "December 2021", "January 2022", "February 2022", "March 2022", "April 2022"];
+    let months = ["October 2022", "November 2022", "December 2022", "January 2023", "February 2023", "March 2023", "April 2023"];
     const dataMap = new Map();
     for (const game of games) {
       dataMap.set(game.date, game);
