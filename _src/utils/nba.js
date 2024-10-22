@@ -25,6 +25,12 @@ module.exports = async function fetchTeamData(team) {
       }
       const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+      // Collect only TV broadcasters for the selected team (either "home" or "away"), plus any national broadcasts
+      const tvBroadcasts = gameData.bd.b
+        .filter(({ scope, type }) => type === 'tv' && (scope === (isHome ? 'home' : 'away') || scope === 'natl'))
+        .map(({ disp }) => disp)
+        .join(', '); // Join them into a comma-separated string
+
       return {
         location: isHome ? 'home' : 'away',
         abbr: oppData.ta,
@@ -32,7 +38,7 @@ module.exports = async function fetchTeamData(team) {
         city: oppData.tc,
         result: result,
         score: `${teamData.s}-${oppData.s}`,
-        tv: gameData.bd.b.find(({ scope, type }) => type === 'tv' && ([isHome ? 'home' : 'away', 'natl'].includes(scope)))?.disp,
+        tv: tvBroadcasts || 'No TV info',
         date: gameData.gdte,
         time: gDate.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }),
         month: months[gDate.getMonth()],
