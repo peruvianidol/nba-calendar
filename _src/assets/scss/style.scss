@@ -106,8 +106,8 @@ td {
   flex: 1;
 }
 .tv {
-  height: 1.25em;
-  flex-shrink: 1;
+  font-size: 10px;
+  line-height: 1.2;
 }
 [aria-describedby="symbol-nbc-sports-chicago-desc"],
 [aria-describedby="symbol-nbc-sports-chicago-plus-desc"] {
@@ -131,7 +131,7 @@ td {
 .game figcaption {
   display: flex;
   gap: .5em;
-  align-items: center;
+  align-items: flex-end;
 }
 .result {
   text-align: center;

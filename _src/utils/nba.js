@@ -3,7 +3,7 @@ const Cache = require("@11ty/eleventy-cache-assets");
 module.exports = async function fetchTeamData(team) {
   const games = [];
 
-  let url = "https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2022/league/00_full_schedule.json";
+  let url = "https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2024/league/00_full_schedule.json";
 
   let data = await Cache(url, {
     duration: "8hr",

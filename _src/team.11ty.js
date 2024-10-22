@@ -9,7 +9,7 @@ class Games {
         alias: 'team',
       },
       eleventyComputed: {
-        "title": (data) => `${data.team.city} ${data.team.name} 2022-23 Schedule`,
+        "title": (data) => `${data.team.city} ${data.team.name} 2024-25 Schedule`,
       },
       "image": (data) => `${this.slug(data.team.name)}`,
       "layout": "calendar",
@@ -21,7 +21,7 @@ class Games {
 
   async render(data) {
     const games = await fetchTeamData(data.team.abbr);
-    let months = ["October 2022", "November 2022", "December 2022", "January 2023", "February 2023", "March 2023", "April 2023"];
+    let months = ["October 2024", "November 2024", "December 2024", "January 2025", "February 2025", "March 2025", "April 2025"];
     const dataMap = new Map();
     for (const game of games) {
       dataMap.set(game.date, game);
@@ -52,7 +52,7 @@ class Games {
       }
 
       while (d.getMonth() === mon) {
-        if (count > 3) {
+        if (count > 4) {
           preseason = false;
         }
         const game = dataMap.get(d.toISOString().split('T')[0]);
@@ -69,7 +69,8 @@ class Games {
           if (game.result) {
             output += `<figcaption><p class="result">${game.result} ${game.score}</p></figcaption>`;
           } else {
-            output += `<figcaption><p>${this.svg(game.tv.toLowerCase().replace(/\s/g, '-'), "tv")}</p><p class="time">${game.time}</p></figcaption>`;
+            output += `<figcaption><p class="tv">${game.tv}</p><p class="time">${game.time}</p></figcaption>`;
+            // output += `<figcaption><p>${this.svg(game.tv.toLowerCase().replace(/\s/g, '-'), "tv")}</p><p class="time">${game.time}</p></figcaption>`;
           }
           output += `</figure>`;
           output += `</td>`;
