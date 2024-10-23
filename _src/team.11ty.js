@@ -27,14 +27,20 @@ class Games {
       dataMap.set(game.date, game);
     }
     let preseason = true;
-    let count = 0;
+    const preseasonCutoff = new Date('2024-10-21'); // Preseason ends on October 20, 2024
     let output = '';
+
+    // Add team class logic
+    let teamClass = data.team.name.toLowerCase().replace(/\s/g, '-'); // Convert team name to lowercase and replace spaces with hyphens
+    if (data.team.name === '76ers') {
+      teamClass = 'sixers'; // Special case for Philadelphia 76ers
+    }
     
     for (let i=0; i<months.length; i++) {
       let d = new Date(months[i]);
       let mon = d.getMonth();
 
-      output += `<table>
+      output += `<table class="${teamClass}">
       <caption>${months[i]}</caption>
       <tr>
         <th>Sun</th>
@@ -52,11 +58,9 @@ class Games {
       }
 
       while (d.getMonth() === mon) {
-        if (count > 4) {
-          preseason = false;
-        }
         const game = dataMap.get(d.toISOString().split('T')[0]);
         if (game) {
+          preseason = new Date(game.date) < preseasonCutoff; // Mark as preseason if before cutoff date
           output += `<td class=${game.location}`;
           if (preseason) {
             output += ' data-preseason="true"';
@@ -74,7 +78,6 @@ class Games {
           }
           output += `</figure>`;
           output += `</td>`;
-          count++;
         } else {
           output += `<td><p class="date">${d.getDate()}</p></td>`;
         }

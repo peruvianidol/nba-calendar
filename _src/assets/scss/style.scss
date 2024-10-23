@@ -64,8 +64,8 @@ tr {
 }
 th, td {
   display: block;
-  width: 14.286%;  
   padding: .5rem;
+  flex: 1;
 }
 td {
   aspect-ratio: 1;
@@ -87,11 +87,14 @@ td {
   z-index: -1;
 }
 .home, .away {
-  outline: 2px solid black;
+  outline: 2px solid;
   outline-offset: -2px;
 }
 .home {
-  outline-color: red;
+  outline-color: var(--brand-primary);
+}
+.away {
+  outline-color: var(--brand-secondary);
 }
 .date {
   font-weight: bold;
@@ -243,6 +246,9 @@ dt:not(:first-child) {
   .result {
     flex: revert;
     font-size: 1rem;
+  }
+  .tv {
+    text-align: right;
   }
 }
 

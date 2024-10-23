@@ -5,7 +5,7 @@ layout: base
   {% svg team.name | slug, "logo" %}
   <h1>{{ title }}</h1>
   
-  <dl>
+  <dl class="{% if team.name === "76ers" %}sixers{% else %}{{team.name | slug }}{% endif %}">
     <dt class="home"></dt>
     <dd>Home</dd>
     <dt class="away"></dt>
