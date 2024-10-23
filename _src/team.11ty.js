@@ -32,15 +32,15 @@ class Games {
 
     // Add team class logic
     let teamClass = data.team.name.toLowerCase().replace(/\s/g, '-'); // Convert team name to lowercase and replace spaces with hyphens
-    if (data.team.name === '76ers') {
+    if (data.team.name === 'Philadelphia 76ers') {
       teamClass = 'sixers'; // Special case for Philadelphia 76ers
     }
     
-    for (let i=0; i<months.length; i++) {
+    for (let i = 0; i < months.length; i++) {
       let d = new Date(months[i]);
       let mon = d.getMonth();
 
-      output += `<table class="${teamClass}">
+      output += `<table class="${teamClass}">  <!-- Adding the team name as a class --> 
       <caption>${months[i]}</caption>
       <tr>
         <th>Sun</th>
@@ -53,7 +53,7 @@ class Games {
       </tr>
       <tr>`;
 
-      for (let n=0; n< d.getDay(); n++) {
+      for (let n = 0; n < d.getDay(); n++) {
         output += `<td></td>`;
       }
 
@@ -74,7 +74,6 @@ class Games {
             output += `<figcaption><p class="result">${game.result} ${game.score}</p></figcaption>`;
           } else {
             output += `<figcaption><p class="tv">${game.tv}</p><p class="time">${game.time}</p></figcaption>`;
-            // output += `<figcaption><p>${this.svg(game.tv.toLowerCase().replace(/\s/g, '-'), "tv")}</p><p class="time">${game.time}</p></figcaption>`;
           }
           output += `</figure>`;
           output += `</td>`;
@@ -95,9 +94,8 @@ class Games {
 
       output += `</tr></table>`;
     }
-    // console.log(games[0]);
-    return output;
 
+    return output;
   }
 }
 
